@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tp2
+spec:
+  selector:
+    matchLabels:
+      app: tp2
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: tp2
+    spec:
+      containers:
+      - name: tp2
+        imagePullPolicy: Never
+        image: tp2:latest
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
